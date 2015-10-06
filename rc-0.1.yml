@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: flaskapp-rc
+spec:
+  selector:
+    name: web
+    version: v0.1
+  template:
+    metadata:
+      labels:
+        name: web
+        version: v0.1
+    spec:
+      containers:
+      - name: whatever
+        image: agonzalezro/k8s-py-example:0.1
+        ports:
+        - containerPort: 5000
